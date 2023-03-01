@@ -22,16 +22,18 @@
 
         <script src="src/ngquill.js">
         </script>
-
-</script>
-
-    <body 
+        
+    <div 
      ng-app="senior.social" ng-controller="ngQuillController as vm">
-        <h3>Editor Padrão</h3>
+     <div style="width: 600px; height: 400px;">
+      <h3>Editor Padrão</h3>
 
         <ng-quill-editor 
         placeholder="Insira sua mensagem..."
         ng-model="vm.model" 
         on-editor-created="editorCreated(vm.model)" on-content-changed="contentChanged(vm.model)"></ng-quill-editor>
-    </body>
+
+     </div>
+        
+    </div>
 </html>
