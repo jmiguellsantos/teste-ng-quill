@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>NGQuill Teste Diretiva</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta charset="utf-8">
+
+        <!-- Style -->
+        <link rel="stylesheet" href="//cdn.quilljs.com/1.2.0/quill.snow.css">
+        <link rel="stylesheet" href="//cdn.quilljs.com/1.2.0/quill.bubble.css">
+
+        <style>
+        ng-quill-editor.ng-invalid .ql-container {
+          border: 1px dashed red;
+        }
+        </style>
+
+        <!-- Scripts -->
+        <script type="text/javascript" src="//code.angularjs.org/1.5.8/angular.min.js"></script>
+        <script type="text/javascript" src="//cdn.quilljs.com/1.2.0/quill.js"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/ng-quill/2.2.1/ng-quill.min.js"></script>
+
+
+        <script src="src/ngquill.js">
+        </script>
+
+    <body ng-app="senior.social" ng-controller="ngQuillController">
+        <h3>Editor Padrão</h3>
+
+        <ng-quill-editor 
+        placeholder="Insira sua mensagem..."
+        ng-model="title" 
+        on-editor-created="editorCreated(editor)" on-content-changed="contentChanged(editor, html, text)"></ng-quill-editor>
+    </body>
+</html>
