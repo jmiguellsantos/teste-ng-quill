@@ -1,24 +1,28 @@
 (function () {
   'use sctrict';
 
-var quillModule = angular.module('senior.social', ['ngQuill']);
-quillModule.config(['ngQuillConfigProvider', function (ngQuillConfigProvider) {
-    ngQuillConfigProvider.set();
-}]);
-quillModule.controller('ngQuillController', [
-    '$scope',
-    function($scope) {
-        $scope.title = '';
-        $scope.changeDetected = false;
+  var quillModule = angular.module('senior.social', ['ngQuill']);
+  quillModule.config([
+    'ngQuillConfigProvider',
+    function (ngQuillConfigProvider) {
+      ngQuillConfigProvider.set();
+    },
+  ]);
+  quillModule.controller('ngQuillController', ngQuillController);
 
-        $scope.editorCreated = function (editor) {
-            console.log(editor);
-        };
-        $scope.contentChanged = function (editor, html, text) {
-            $scope.changeDetected = true;
-        };
-    }
-]);
+  function ngQuillController($scope) {
+    var vm = this;
+    vm.$scope = $scope;
+    vm.model = '';
+    vm.placeholder = 'Insira sua Mensagem'
+    $scope.changeDetected = false;
 
-
-}())
+    $scope.editorCreated = function (text) {
+      console.log(text);
+    };
+    $scope.contentChanged = function (text) {
+      $scope.changeDetected = true;
+      console.log(text);
+    };
+  }
+})();
